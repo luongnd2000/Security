@@ -4,10 +4,10 @@ using System.Text;
 
 namespace SecurityConsole
 {
-    class VigenereAuto
+    class VigenereRepeat
     {
         static string keys = "abcdefghijklmnopqrstuvwxyz";
-        public VigenereAuto()
+        public VigenereRepeat()
         {
             
         }

@@ -169,9 +169,9 @@ namespace SecurityConsole
 		{
 			return Cipher(input, key, false);
 		}
-  //      public static void Main(string[] args)
-  //      {
-		//	Console.WriteLine(Cipher("instruments", "Monarchy", true));
-		//}
-	}
+        //public static void Main(string[] args)
+        //{
+        //    Console.WriteLine(Cipher("instruments", "Monarchy", true));
+        //}
+    }
 }

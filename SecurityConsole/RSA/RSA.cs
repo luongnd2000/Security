@@ -4,13 +4,13 @@ using System.Text;
 
 namespace SecurityConsole.RSA
 {
-    class RSA1
+    class RSA
     {
         int p;
         int q;
         int e;
 
-        public RSA1(int p, int q, int e)
+        public RSA(int p, int q, int e)
         {
             this.p = p;
             this.q = q;
@@ -53,18 +53,19 @@ namespace SecurityConsole.RSA
         {
             return ModuloBase.Power(M, d, n);
         }
+        public int BEncryptM(int M)
+        {
+            return ModuloBase.Power(M, e, n);
+        }
         public int BDecryptC(int C)
         {
             return ModuloBase.Power(C, e, n);
         }
-        public int ADecryptM(int C)
+        public int ADecryptC(int C)
         {
-            return ModuloBase.Power(M, d, n);
+            return ModuloBase.Power(C, d, n);
         }
-        public int BEncryptC(int M)
-        {
-            return ModuloBase.Power(C, e, n);
-        }
+        
         public void Solve1()
         {
             int[] PU = GetPU();
@@ -74,13 +75,29 @@ namespace SecurityConsole.RSA
             int M = 88;
             int C = AEncryptM(M);
             Console.WriteLine("Encrypt from M =  "+M);
-            Console.WriteLine("C = " + C);
-            Console.WriteLine("M = " + BDecryptC(C));
+            Console.WriteLine("A Encrypt M : C = " + C);
+            Console.WriteLine("B Decrypt C : M = " + BDecryptC(C));
         }
-        public static void Main(string [] args)
+        public void Solve2()
         {
-            RSA1 rsa1 = new RSA1(17, 11, 7);
-            rsa1.Solve1();
+            int[] PU = GetPU();
+            int[] PR = GetPR();
+            Console.WriteLine("PU={" + PU[0] + "," + PU[1] + "}");
+            Console.WriteLine("PR={" + PR[0] + "," + PR[1] + "}");
+            int M = 88;
+            int C = BEncryptM(M);
+            Console.WriteLine("Encrypt from M =  " + M);
+            Console.WriteLine("B Encrypt M : C = " + C);
+            Console.WriteLine("A Decrypt C : M = " + ADecryptC(C));
         }
+        //public static void Main(string [] args)
+        //{
+        //    RSA rsa = new RSA(17, 11, 7);
+        //    Console.WriteLine("Bai Toan 1 : ");
+        //    rsa.Solve1();
+        //    Console.WriteLine();
+        //    Console.WriteLine("Bai Toan 2 : ");
+        //    rsa.Solve2();
+        //}
     }
 }

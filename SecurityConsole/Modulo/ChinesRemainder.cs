@@ -25,12 +25,13 @@ namespace SecurityConsole
         }
 
         //// Driver code
-        //public static void Main()
-        //{
-        //    int[] num = { 3, 4, 5 };
-        //    int[] rem = { 2, 3, 1 };
-        //    int k = num.Length;
-        //    Console.WriteLine("x is " + findMinX(num,rem, k));
-        //}
+        public static void Main()
+        {
+            // rem[i] mod[i] num = x
+            int[] num = { 3 , 4, 5 };
+            int[] rem = { 2, 3, 1 };
+            int k = num.Length;
+            Console.WriteLine("x is " + findMinX(num, rem, k));
+        }
     }
 }

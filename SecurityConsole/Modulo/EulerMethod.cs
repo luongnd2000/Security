@@ -12,7 +12,8 @@ namespace SecurityConsole
                 return b;
             return gcd(b % a, a);
         }
-        //Tinh Phi(n)
+        // Tinh Phi(n)
+        // 
         static int phi(int n)
         {
             int result = 1;
@@ -44,7 +45,25 @@ namespace SecurityConsole
             if (gcd_extend(n, m, ref x, ref y) != 1) return -1; 
             return (x % m + m) % m; 
         }
-
+        public int Euler(int a, int b, int n)
+        {
+            int b1, amountA;
+            if (coprime(a, n))
+            {
+                b1 = b % phi(n);
+                return ModuloBase.Power(a, b1, n);
+            }
+            else
+            {
+                amountA = (int)b / (phi(n) + 1);
+                b1 = (b % (phi(n) + 1)) + amountA;
+                return ModuloBase.Power(a, b1, n);
+            }
+        }
+        public bool coprime(int a, int b)
+        {
+            return gcd(a, b) == 1;
+        }
         //public static void Main()
         //{
         //    Console.WriteLine(phi(12));

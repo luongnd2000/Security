@@ -24,6 +24,17 @@ namespace SecurityConsole
             }
             return res;
         }
+        public string Modulo(int a, int b, int x, int y, int n)
+        {
+            int A1, A2, A3, A4, A5;
+            A1 = (Power(a, x, n) + Power(b, y, n)) % n;
+            A2 = (Power(a, x, n) - Power(b, y, n) + n) % n;
+            A3 = (Power(a, x, n) * Power(b, y, n)) % n;
+            A4 = EulerMethod.ModuloReverse(Power(b, y, n), n);
+            A5 = (Power(a, x, n) * A4) % n;
+            return "A1 = " + A1 + "\nA2 = " + A2 + "\nA3 = " + A3 + "\nA4 = " + A4 + "\nA5 = " + A5;
+        }
+
         //static void Main(string[] args)
         //{
         //    Console.WriteLine(power(300, 34, 2555));
