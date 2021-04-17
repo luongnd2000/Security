@@ -1,0 +1,13 @@
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\bin\Debug\netcoreapp3.1\SecurityConsole.exe
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\bin\Debug\netcoreapp3.1\SecurityConsole.deps.json
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\bin\Debug\netcoreapp3.1\SecurityConsole.runtimeconfig.json
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\bin\Debug\netcoreapp3.1\SecurityConsole.runtimeconfig.dev.json
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\bin\Debug\netcoreapp3.1\SecurityConsole.dll
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\bin\Debug\netcoreapp3.1\SecurityConsole.pdb
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.csprojAssemblyReference.cache
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.AssemblyInfoInputs.cache
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.AssemblyInfo.cs
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.csproj.CoreCompileInputs.cache
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.dll
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.pdb
+C:\Users\luong\source\repos\SecurityConsole\SecurityConsole\obj\Debug\netcoreapp3.1\SecurityConsole.genruntimeconfig.cache
