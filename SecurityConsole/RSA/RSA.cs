@@ -35,7 +35,7 @@ namespace SecurityConsole.RSA
         {
             get
             {
-                return EulerMethod.ModuloReverse(e, Phi);
+                return EulerMethod.ModuloInverse(e, Phi);
             }
         }
         public int[] GetPU()
@@ -72,7 +72,7 @@ namespace SecurityConsole.RSA
             int[] PR = GetPR();
             Console.WriteLine("PU={"+PU[0]+","+PU[1]+"}");
             Console.WriteLine("PR={" + PR[0] + "," + PR[1] + "}");
-            int M = 88;
+            int M = 59;
             int C = AEncryptM(M);
             Console.WriteLine("Encrypt from M =  "+M);
             Console.WriteLine("A Encrypt M : C = " + C);
@@ -84,15 +84,15 @@ namespace SecurityConsole.RSA
             int[] PR = GetPR();
             Console.WriteLine("PU={" + PU[0] + "," + PU[1] + "}");
             Console.WriteLine("PR={" + PR[0] + "," + PR[1] + "}");
-            int M = 88;
+            int M = 59;
             int C = BEncryptM(M);
             Console.WriteLine("Encrypt from M =  " + M);
             Console.WriteLine("B Encrypt M : C = " + C);
             Console.WriteLine("A Decrypt C : M = " + ADecryptC(C));
         }
-        //public static void Main(string [] args)
+        //public static void Main(string[] args)
         //{
-        //    RSA rsa = new RSA(17, 11, 7);
+        //    RSA rsa = new RSA(47, 71, 61);
         //    Console.WriteLine("Bai Toan 1 : ");
         //    rsa.Solve1();
         //    Console.WriteLine();

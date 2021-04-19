@@ -26,5 +26,9 @@ namespace SecurityConsole
             }
             return result;
         }
+        //public static void Main(string[] args)
+        //{
+        //    Console.WriteLine(encrypt("ALLWORKANDNOPLAYMA", 4));
+        //}
     }
 }

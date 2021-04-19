@@ -171,7 +171,7 @@ namespace SecurityConsole
 		}
         //public static void Main(string[] args)
         //{
-        //    Console.WriteLine(Cipher("instruments", "Monarchy", true));
+        //    Console.WriteLine(Cipher("ALLWORKANDNOPLAYMA", "NOROSEWI", true));
         //}
     }
 }

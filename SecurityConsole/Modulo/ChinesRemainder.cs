@@ -7,7 +7,7 @@ namespace SecurityConsole
     class ChinesRemainder
     {
         //So du trung hoa
-        static int findMinX(int[] num, int[] rem,
+        static int FindMinX(int[] num, int[] rem,
                             int k)
         {
             int x = 1;
@@ -24,14 +24,14 @@ namespace SecurityConsole
 
         }
 
-        //// Driver code
-        public static void Main()
-        {
-            // rem[i] mod[i] num = x
-            int[] num = { 3 , 4, 5 };
-            int[] rem = { 2, 3, 1 };
-            int k = num.Length;
-            Console.WriteLine("x is " + findMinX(num, rem, k));
-        }
+        // Driver code
+        //public static void Main()
+        //{
+        //    // rem[i] mod[i] num = x
+        //    int[] num = { 17, 37, 71 };
+        //    int[] rem = { 13, 10, 30 };
+        //    int k = num.Length;
+        //    Console.WriteLine("x is " + FindMinX(num, rem, k));
+        //}
     }
 }

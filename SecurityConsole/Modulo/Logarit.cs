@@ -6,7 +6,8 @@ namespace SecurityConsole.Modulo
 {
     class Logarit
     {
-        public static int logarithmRoiRac(int a, int b, int n)
+        // k=log,a,(b) mod n
+        public static int LogarithmRoiRac(int a, int b, int n)
         {
             for (int i = 1; i < n; i++)
             {

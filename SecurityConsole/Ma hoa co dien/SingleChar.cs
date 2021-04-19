@@ -19,9 +19,9 @@ namespace SecurityConsole
         }
         //public static void Main(string[] args)
         //{
-        //    string plaintext = Console.ReadLine();
-        //    string key = Console.ReadLine();
-        //    Console.WriteLine(Encrypt(key, plaintext));
+        //    Console.WriteLine("ALLWORKANDNOPLAYMA".Length);
+        //        string s=Encrypt("LGRJOCFIKAHQYTEMNBWUVSDPXZ".ToLower(), "ALLWORKANDNOPLAYMA".ToLower()).ToUpper();
+        //    Console.WriteLine(s.Length);
         //}
     }
 }

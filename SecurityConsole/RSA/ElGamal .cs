@@ -56,7 +56,7 @@ namespace SecurityConsole.RSA
         {
             int key = ModuloBase.Power(C1, C2, q);
             Console.WriteLine("Key : " + key);
-            int Mdecrypt = (C2 * EulerMethod.ModuloReverse(key, q)) % q;
+            int Mdecrypt = (C2 * EulerMethod.ModuloInverse(key, q)) % q;
             return Mdecrypt;
         }
         public void Solve()
@@ -66,9 +66,9 @@ namespace SecurityConsole.RSA
             Console.WriteLine("B encrypt M : (C1,C2)=(" + C1 + "," + C2 + ")");
             Console.WriteLine("A decrypt (C1,C2) : M=" + DecryptC1C2());
         }
-        //public static void Main(string [] args)
+        //public static void Main(string[] args)
         //{
-        //    ElGamal elgamal = new ElGamal(19, 10,5, 6, 17);
+        //    ElGamal elgamal = new ElGamal(7433, 3, 341, 872, 403);
         //    elgamal.Solve();
         //}
     }

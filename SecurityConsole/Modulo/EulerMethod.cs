@@ -13,8 +13,7 @@ namespace SecurityConsole
             return gcd(b % a, a);
         }
         // Tinh Phi(n)
-        // 
-        static int phi(int n)
+        public static int phi(int n)
         {
             int result = 1;
             for (int i = 2; i < n; i++)
@@ -22,29 +21,7 @@ namespace SecurityConsole
                     result++;
             return result;
         }
-
-
-        static int gcd_extend(int a, int b, ref int x,ref int y)
-        {
-            if (b == 0)
-            {
-                x = 1;
-                y = 0;
-                return a;
-            }
-            int x1=0, y1=0;
-            int gcd = gcd_extend(b, a % b, ref x1,ref y1);
-            x = y1;
-            y = x1 - (a / b) * y1;
-            return gcd;
-        }
-        //Tinh nghich dao modulo
-        public static int ModuloReverse(int n, int m)
-        {
-            int x=0, y=0;
-            if (gcd_extend(n, m, ref x, ref y) != 1) return -1; 
-            return (x % m + m) % m; 
-        }
+        //Tinh modulo bang euler
         public int Euler(int a, int b, int n)
         {
             int b1, amountA;
@@ -60,6 +37,18 @@ namespace SecurityConsole
                 return ModuloBase.Power(a, b1, n);
             }
         }
+        // Tinh Modulo nghich dao
+        public static int ModuloInverse(int a, int n)
+        {
+            for (int i = 1; i < n; i++)
+            {
+                if (((long)a * i) % n == 1)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         public bool coprime(int a, int b)
         {
             return gcd(a, b) == 1;
@@ -67,7 +56,7 @@ namespace SecurityConsole
         //public static void Main()
         //{
         //    Console.WriteLine(phi(12));
-        //    Console.WriteLine(modulo_inverse_euclidean(550, 1759));
+        //    Console.WriteLine(ModuloInverse(550, 1759));
         //}
     }
 }

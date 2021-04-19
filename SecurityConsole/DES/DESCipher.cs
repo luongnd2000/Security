@@ -136,9 +136,9 @@ namespace SecurityConsole
             this.K = K;
             this.M = M;
         }
-        public string hexToBin(string value)
+        public string HexToBin(string value)
         {
-            string binarystring = string.Join(string.Empty,value.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
+            string binarystring = string.Join(string.Empty, value.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
             int length = binarystring.Length;
             if (length < 64)
             {
@@ -149,7 +149,7 @@ namespace SecurityConsole
             }
             return binarystring;
         }
-        public string decToBin(int value)
+        public string DecToBin(int value)
         {
             string result = Convert.ToString(value, 2);
             int length = result.Length;
@@ -166,86 +166,79 @@ namespace SecurityConsole
         {
             return Convert.ToInt64(bin, 2);
         }
-        public string binToHex(string bin)
+        public string BinToHex(string bin)
         {
             return Convert.ToInt64(bin, 2).ToString("X");
         }
-        public string permutation(string value, int [,] a,int row,int col)
+        public string Permutation(string value, int[,] a, int row, int col)
         {
-            //for (int i = 0; i < row; i++)
-            //{
-            //    for (int j = 0; j < col; j++)
-            //    {
-            //        Console.Write(a[i, j] + " ");
-            //    }
-            //    Console.WriteLine("");
-            //}
             string result = "";
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < col; j++)
                 {
-                        result += value.ElementAt(a[i, j] - 1);
+                    result += value.ElementAt(a[i, j] - 1);
                 }
             }
             return result;
         }
-        public string rotLeftShift(string value, int number)
+        public string RotLeftShift(string value, int number)
         {
             string left = value.Substring(0, number);
             string right = value.Substring(number);
             return right + left;
         }
-        public void setUpCD()
+        public void SetUpCD()
         {
-            string result = permutation(hexToBin(K), PC1,7,8);
+            string result = Permutation(HexToBin(K), PC1, 7, 8);
             C.Add(result.Substring(0, 28));
             D.Add(result.Substring(28));
             for (int i = 0; i < s.Length; i++)
-            {   
-                C.Add(rotLeftShift(C[i], s[i]));
+            {
+                C.Add(RotLeftShift(C[i], s[i]));
             }
             for (int i = 0; i < s.Length; i++)
             {
-                D.Add(rotLeftShift(D[i], s[i]));
+                D.Add(RotLeftShift(D[i], s[i]));
             }
         }
-        public void setUpKey()
+        public void SetUpKey()
         {
             string CD = "";
             for (int i = 1; i < C.Count; i++)
             {
                 CD = C[i] + D[i];
-                Key.Add(permutation(CD, PC2,8,6));
+                Key.Add(Permutation(CD, PC2, 8, 6));
             }
         }
-        public void setUpLR()
+        public void SetUpLR()
         {
-            string IPM = permutation(hexToBin(M), IP,8,8);
+            string IPM = Permutation(HexToBin(M), IP, 8, 8);
             L.Add(IPM.Substring(0, 32));
             R.Add(IPM.Substring(32));
             for (int i = 0; i < 16; i++)
             {
                 L.Add(R[i]);
-                R.Add(xor(this.functionF(R[i], Key[i]), L[i]));
+                R.Add(Xor(FunctionF(R[i], Key[i]), L[i]));
             }
         }
-        public string xor(string bin1, string bin2)
+        public string Xor(string bin1, string bin2)
         {
             string result = "";
             for (int i = 0; i < bin1.Length; i++)
             {
                 result += int.Parse(bin1.ElementAt(i).ToString()) ^ int.Parse(bin2.ElementAt(i).ToString());
             }
-            return result;
+            return result;  
         }
 
         public string SBox(string value)
         {
+
             List<string> values = new List<string>();
             for (int z = 0; z < value.Length; z += 6)
             {
-                values.Add(value.Substring(z,6));
+                values.Add(value.Substring(z, 6));
             }
             string result = "";
             int i = 0;
@@ -254,71 +247,85 @@ namespace SecurityConsole
                 string row = x.ElementAt(0).ToString() + x.ElementAt(x.Length - 1).ToString();
                 if ("00".Equals(row))
                 {
-                    result += decToBin(S[i,0,BinToDex(x.Substring(1, 4))]);
+                    result += DecToBin(S[i, 0, BinToDex(x.Substring(1, 4))]);
                 }
                 else if ("01".Equals(row))
                 {
                     long indexx = BinToDex(x.Substring(1, 4));
-                    result += decToBin(S[i,1,BinToDex (x.Substring(1, 4))]);
+                    result += DecToBin(S[i, 1, BinToDex(x.Substring(1, 4))]);
                 }
                 else if ("10".Equals(row))
                 {
-                    result +=decToBin(S[i,2,BinToDex(x.Substring(1, 4))]);
+                    result += DecToBin(S[i, 2, BinToDex(x.Substring(1, 4))]);
                 }
                 else
                 {
-                    result += decToBin(S[i,3,BinToDex (x.Substring(1, 4))]);
+                    result += DecToBin(S[i, 3, BinToDex(x.Substring(1, 4))]);
                 }
                 i++;
             }
             return result;
         }
-        public string functionF(string R, string K)
+        public string FunctionF(string R, string K)
         {
-            string ER =permutation(R, E,8,6);
-            string Sbox = this.SBox(this.xor(ER, K));
-            Console.WriteLine("A = " +binToHex(this.xor(R, K)) + " Sbox: " + binToHex(Sbox));
-            string PSB = permutation(Sbox, P,8,4);
+            string ER = Permutation(R, E, 8, 6);
+            Console.WriteLine("ER = " + BinToHex(ER));
+            string Sbox = SBox(Xor(ER, K));
+            Console.WriteLine($"A = {BinToHex(Xor(R, K)),-20} "+"Sbox =  " + BinToHex(Sbox));
+            string PSB = Permutation(Sbox, P, 8, 4);
+            Console.WriteLine("PSB = "+ BinToHex(PSB));
+            Console.WriteLine();
             return PSB;
         }
-        public String encrypt()
+        public string Encrypt()
         {
-            this.setUpCD();
-            this.setUpKey();
-            this.setUpLR();
-            return permutation(R[R.Count - 1] + L[L.Count - 1], IP_1,8,8);
+            Console.WriteLine("Bat dau ma hoa .");
+            Console.WriteLine("---------------------------------------");
+            SetUpCD();
+            for (int i = 0; i < C.Count; i++)
+            {
+                Console.Write($"C{i,-2}= {BinToHex(C[i]),-20}");
+                Console.WriteLine($"D{i,-2}= {BinToHex(D[i])}");
+            }
+            Console.WriteLine("---------------------------------------");
+            SetUpKey();
+            Console.WriteLine("Khoa: ");
+            for (int i = 1; i <= Key.Count; i++)
+            {
+                Console.WriteLine($"K{i,-3} = {BinToHex(Key[i - 1])}");
+            }
+            Console.WriteLine("---------------------------------------");
+            SetUpLR();
+            return Permutation(R[R.Count - 1] + L[L.Count - 1], IP_1, 8, 8);
         }
-        public string decrypt(string ciphertext)
+        public string Decrypt(string ciphertext)
         {
-            string IPD = permutation(hexToBin(ciphertext), IP,8,8);
+
+            Console.WriteLine("Bat dau giai ma .");
+            string IPD = Permutation(HexToBin(ciphertext), IP, 8, 8);
             LD.Add(IPD.Substring(0, 32));
             RD.Add(IPD.Substring(32));
             for (int i = 0; i < 16; i++)
             {
                 LD.Add(RD[i]);
-                RD.Add(this.xor(this.functionF(RD[i], Key[16 - i - 1]), LD[i]));
+                RD.Add(Xor(FunctionF(RD[i], Key[16 - i - 1]), LD[i]));
             }
-            return permutation(RD[RD.Count - 1] + LD[LD.Count- 1], IP_1,8,8);
+            return Permutation(RD[RD.Count - 1] + LD[LD.Count - 1], IP_1, 8, 8);
         }
         //public static void Main(string[] args)
         //{
-        //    DESCipher des = new DESCipher("F7918DFD6815020C", "D8B8217DA16D5B5F");
-        //    Console.WriteLine("TEST Xor " + des.xor("110101", "011001"));
-        //    string ciphertext = des.encrypt();
-        //    Console.WriteLine("Chuoi da ma hoa: " + des.binToHex(ciphertext));
-        //    Console.WriteLine("Giai ma: " + des.binToHex(des.decrypt(des.binToHex(ciphertext))));
- 
-        //    Console.WriteLine("Khoa: ");
-        //    for (int i = 1; i <= des.Key.Count; i++)
-        //    {
-        //        Console.WriteLine("K" + i + " = " + des.binToHex(des.Key[i - 1]));
-        //    }
+        //    DESCipher des = new DESCipher("089166C3FDDE9022", "40A78883D0E1D258");
+        //    string ciphertext = des.Encrypt();
+        //    Console.WriteLine("---------------------------------------");
         //    Console.WriteLine("L,R: ");
         //    for (int i = 0; i < des.R.Count; i++)
         //    {
-        //        Console.WriteLine("L" + i + " = " + des.binToHex(des.L[i]) + "       " + "R" + i + " = " + des.binToHex(des.R[i]));
+        //        Console.WriteLine($"L{i,-2} = {des.BinToHex(des.L[i]),-20} R{i,-2} = {des.BinToHex(des.R[i])}");
         //    }
+        //    Console.WriteLine("---------------------------------------");
+        //    Console.WriteLine("Chuoi da ma hoa C = " + des.BinToHex(ciphertext));
+        //    Console.WriteLine("---------------------------------------");
+        //    Console.WriteLine("Giai ma M = " + des.BinToHex(des.Decrypt(des.BinToHex(ciphertext))));
         //}
-
     }
 }

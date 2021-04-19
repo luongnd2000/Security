@@ -57,7 +57,7 @@ namespace SecurityConsole.RSA
         }
         //public static void Main(string[] args)
         //{
-        //    DiffieHellman obj = new DiffieHellman(353, 3, 97, 233);
+        //    DiffieHellman obj = new DiffieHellman(6389, 7, 442, 342);
         //    obj.Solve();
         //}
     }

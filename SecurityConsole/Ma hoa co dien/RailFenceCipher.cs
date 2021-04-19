@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SecurityConsole
 {
-    class PermutationCipher
+    class RailFenceCipher
     {
         // mat ma hoan vi
         public static string Encrypt(int n,string plaintext)
@@ -28,7 +28,7 @@ namespace SecurityConsole
 
         //public static void Main(string[] args)
         //{
-        //    Console.WriteLine(Encrypt(3, "Monarchy"));
+        //    Console.WriteLine(Encrypt(4, "ALLWORKANDNOPLAYMA"));
         //}
     }
 }

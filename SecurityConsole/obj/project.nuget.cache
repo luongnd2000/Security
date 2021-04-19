@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dhttMyeNcfUkZ63Mn6D44s9vs5m3+OD6SHVJ8m5h4hZ37UJRNT3VsvVeuw9aB0R4AowuV+p3MQ7hTzg/WBmzsA==",
+  "dgSpecHash": "ioGg4XHPua8yZjwOjUvR282VP23y6Q1NKSpn1iTP0GS5hTaqrgyKAeWfGA7086Nn9vmsYF8xQ0hqH16Qz5ZtSw==",
   "success": true,
   "projectFilePath": "C:\\Users\\luong\\source\\repos\\SecurityConsole\\SecurityConsole\\SecurityConsole.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\luong\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
   "logs": []
 }
